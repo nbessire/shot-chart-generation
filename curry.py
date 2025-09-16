@@ -1,6 +1,10 @@
 import random
 
-
+"""
+Steph Curry specific class with a Markov transition matrix representing his likelihood
+of each shot, as well as his shooting percentage for each of those shots to estimate
+the number of points he will score.
+"""
 class StephCurry:
     def __init__(self):
         self.transition_matrix = {

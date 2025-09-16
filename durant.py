@@ -1,6 +1,10 @@
 import random
 
-
+"""
+Kevin Durant specific class with a Markov transition matrix representing his likelihood
+of each shot, as well as his shooting percentage for each of those shots to estimate
+the number of points he will score.
+"""
 class KevinDurant:
     def __init__(self):
         self.transition_matrix = {
@@ -24,4 +28,4 @@ class KevinDurant:
     
     def estimatedPoints(self, shotDistribution):
         pointsMap = {"Three": .437 * 3, "Jumper": .52 * 2, "Drive": .823 * 2, "FreeThrow": .882}
-        return sum(pointsMap[shot] for shot in shotDistribution)
+        return sum(pointsMap[shot] * count for shot, count in shotDistribution.items())

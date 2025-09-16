@@ -2,9 +2,16 @@ from curry import StephCurry
 from durant import KevinDurant
 from lebron import LebronJames
 import matplotlib.pyplot as plt
+from datetime import datetime
 from PIL import Image
 
 
+
+"""
+Main function for running the simulation and generating the shot chart.
+Gets user input regarding their player choice, generates a game for that player,
+and then visualizes that game on a shot chart.
+"""
 def main():
     name = input("Enter your choice of players (Curry, Lebron, Durant): ").strip().lower()
     if name == "curry":
@@ -17,6 +24,8 @@ def main():
         print("Player not valid")
         return
     game_sequence = player.generateGame()
+
+    #based on the game generated count frequency of each shot
     frequencies = {"Three": 0, "Jumper": 0, "Drive": 0, "FreeThrow": 0}
     for shot in game_sequence:
         frequencies[shot] += 1
@@ -36,6 +45,8 @@ def main():
         "Drive": (404, 175),
     }
 
+    #loop through dictionary with shot type and position on the court image, put number
+    #of attempts from each position at that spot on the court
     for shot, (x, y) in labelPos.items():
         ax.text(
             x,
@@ -49,6 +60,11 @@ def main():
         )
 
     plt.tight_layout()
+
+    #code for if I wanted to save more images to the examples folder
+    #timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    #plt.savefig(f"examples/{name}_{timestamp}.png", bbox_inches="tight")
+
     plt.show()
 
 if __name__ == "__main__":

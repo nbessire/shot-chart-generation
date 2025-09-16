@@ -1,6 +1,10 @@
 import random
 
-
+"""
+Lebron James specific class with a Markov transition matrix representing his likelihood
+of each shot, as well as his shooting percentage for each of those shots to estimate
+the number of points he will score.
+"""
 class LebronJames:
     def __init__(self):
         self.transition_matrix = {
@@ -24,5 +28,5 @@ class LebronJames:
     
     def estimatedPoints(self, shotDistribution):
         pointsMap = {"Three": .349 * 3, "Jumper": .45 * 2, "Drive": .787 * 2, "FreeThrow": .737}
-        return sum(pointsMap[shot] for shot in shotDistribution)
+        return sum(pointsMap[shot] * count for shot, count in shotDistribution.items())
         
