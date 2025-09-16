@@ -22,3 +22,7 @@ class StephCurry:
             k=num_shots
         )
         
+    def estimatedPoints(self, shotDistribution):
+        pointsMap = {"Three": .423 * 3, "Jumper": .5 * 2, "Drive": .691 * 2, "FreeThrow": .91}
+        return sum(pointsMap[shot] * count for shot, count in shotDistribution.items())
+    

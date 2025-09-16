@@ -21,4 +21,7 @@ class KevinDurant:
             weights=[self.transition_matrix[current_move][move] for move in self.moves],
             k=num_shots
         )
-        
+    
+    def estimatedPoints(self, shotDistribution):
+        pointsMap = {"Three": .437 * 3, "Jumper": .52 * 2, "Drive": .823 * 2, "FreeThrow": .882}
+        return sum(pointsMap[shot] for shot in shotDistribution)
