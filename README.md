@@ -38,7 +38,7 @@ about the capabilities of these libraries.
 
 ## Creativity?
 
-
+In my opinion this system is creative in that it generates a unique prediction of a player's game and shot chart based off of past statistics. This predictive ability, and then being able to turn the prediction into an easily understood visual tool is a creative task that my system is able to complete.
 
 ---
 
